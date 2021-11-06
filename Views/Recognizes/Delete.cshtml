@@ -1,0 +1,56 @@
+﻿@model Centric_FINAL.Models.Recognize
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Recognize</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Profile.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profile.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoreValueIndicator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoreValueIndicator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MessageOption)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MessageOption)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,50 @@
+﻿@model Centric_FINAL.Models.Recognize
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Recognize</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Profile.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Profile.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoreValueIndicator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoreValueIndicator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MessageOption)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MessageOption)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Message)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Message)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RecognizeID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

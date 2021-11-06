@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Centric_FINAL.Models.Profile>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Centric Consulting Employees</h2>
+
+<p>
+    @Html.ActionLink("Add New", "Create")
+</p>
+<table class="table table-bordered table-striped">
+    <tr>
+        <th>
+            First Name
+        </th>
+        <th>
+            Last Name
+        </th>
+        <th>
+            Business Unit
+        </th>
+        <th>
+            Hire Date
+        </th>
+        <th>
+            Title
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Phone
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.firstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BusinessUnit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.hireDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.firstName }) |
+                @Html.ActionLink("Details", "Details", new { id = item.firstName }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.firstName })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Centric_FINAL.Models.Recognize>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Recognize an Employee!</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Employee First Name
+        </th>
+        <th>
+            Core Value Indicator
+        </th>
+        <th>
+            Message Option
+        </th>
+        <th>
+            Message
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Profile.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CoreValueIndicator)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MessageOption)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Message)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RecognizeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RecognizeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RecognizeID })
+        </td>
+    </tr>
+}
+
+</table>
