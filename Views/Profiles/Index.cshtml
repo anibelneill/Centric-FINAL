@@ -4,67 +4,66 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Centric Consulting Employees</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Add New", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table table-bordered table-striped">
+<table class="table">
     <tr>
         <th>
-            First Name
+            @Html.DisplayNameFor(model => model.firstName)
         </th>
         <th>
-            Last Name
+            @Html.DisplayNameFor(model => model.lastName)
         </th>
         <th>
-            Business Unit
+            @Html.DisplayNameFor(model => model.BusinessUnit)
         </th>
         <th>
-            Hire Date
+            @Html.DisplayNameFor(model => model.hireDate)
         </th>
         <th>
-            Title
+            @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
-            Email
+            @Html.DisplayNameFor(model => model.email)
         </th>
         <th>
-            Phone
+            @Html.DisplayNameFor(model => model.Phone)
         </th>
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.firstName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.lastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BusinessUnit)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.hireDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.firstName }) |
-                @Html.ActionLink("Details", "Details", new { id = item.firstName }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.firstName })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.firstName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lastName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BusinessUnit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.hireDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmployeeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeID })
+        </td>
+    </tr>
+}
 
 </table>
