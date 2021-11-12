@@ -11,7 +11,7 @@ using Centric_FINAL.Models;
 
 namespace Centric_FINAL.Controllers
 {
-    public class RecognizesController : Controller
+    [Authorize] public class RecognizesController : Controller
     {
         private Context db = new Context();
 

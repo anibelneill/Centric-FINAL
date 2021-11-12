@@ -11,7 +11,7 @@ using Centric_FINAL.Models;
 
 namespace Centric_FINAL.Controllers
 {
-    public class ProfilesController : Controller
+   [Authorize] public class ProfilesController : Controller
     {
         private Context db = new Context();
 
