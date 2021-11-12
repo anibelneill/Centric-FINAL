@@ -50,3 +50,49 @@ textarea {
     background-color: #000000;
     color: #faf7f7;
 }
+
+.fa {
+    padding: 20px;
+    font-size: 30px;
+    width: 50px;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%
+}
+
+    /* Add a hover effect if you want */
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+/* Set a specific color for each brand */
+
+/* Facebook */
+.fa-facebook {
+    background: #3B5998;
+    color: white;
+}
+
+/* Twitter */
+.fa-twitter {
+    background: #55ACEE;
+    color: white;
+}
+
+/* Instagram */
+.fa-instagram {
+    background: #CD486B;
+    color: white;
+}
+
+/* LinkedIn */
+.fa-linkedin {
+    background: #0072B1;
+    color: white;
+}
+
+/* YouTube */
+.fa-youtube {
+    background: #FF0000;
+    color: white;
+}
