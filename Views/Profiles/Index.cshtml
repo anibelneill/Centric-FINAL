@@ -1,4 +1,6 @@
-﻿@model IEnumerable<Centric_FINAL.Models.Profile>
+﻿@*model IEnumerable<Centric_FINAL.Models.Profile>*@
+@model PagedList.IPagedList<Centric_FINAL.Models.Profile>
+@using PagedList.Mvc;
 
 @{
     ViewBag.Title = "Index";
@@ -82,3 +84,7 @@
 }
 
 </table>
+<br />
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+
+@Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }))

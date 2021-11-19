@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using PagedList;
+using PagedList.Mvc;
 
 namespace Centric_FINAL.Models
 {

@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using Centric_FINAL.DAL;
 using Centric_FINAL.Models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace Centric_FINAL.Controllers
 {
@@ -16,9 +18,13 @@ namespace Centric_FINAL.Controllers
         private Context db = new Context();
 
         // GET: Profiles
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
-            return View(db.Profile.ToList());
+            int pgSize = 10;
+            int pageNumber = (page ?? 1);
+            var profile = db.Profile.OrderBy(p => p.lastName).ThenBy(p => p.firstName);
+            var profileList = Profile.ToPagedList(pageNumber, pgSize);
+            return View(profileList);
         }
 
         // GET: Profiles/Details/5
@@ -26,7 +32,7 @@ namespace Centric_FINAL.Controllers
         {
             int pgSize = 10;
             int pageNumber = (page ?? 1);
-            var profile = from p in db.Profile select p;
+            var profile = from p in db.Profile select p; 
 
             profile = db.Profile.OrderBy(p => p.lastName).ThenBy(p => p.firstName); ;
 
@@ -35,7 +41,7 @@ namespace Centric_FINAL.Controllers
                 profile = profile.Where(p => p.lastName.Contains(searchString) || p.firstName.Contains(searchString));
             }
             var profileList = Profile.ToPagedList(pageNumber, pgSize);
-            return View(profileList);
+            return View(profileList); 
         }
 
         // GET: Profiles/Create
