@@ -6,9 +6,23 @@
 
 <h2>Employee List</h2>
 
-<p>
-    @Html.ActionLink("Add New Employee", "Create")
-</p>
+<div class="form-horizontal">
+    <div class="form-group">
+        <div class="col-md-9">
+            @using (Html.BeginForm("Index", "Profiles", FormMethod.Get))
+            {
+                <p>
+                    Find by Name: @Html.TextBox("searchString")
+                    <input type="submit" value="Search" />
+                </p>
+            }
+        </div>
+        <div class="col-md-3">
+            @Html.ActionLink("Add New Employee", "Create")
+        </div>
+    </div>
+</div>
+
 <table class="table">
     <tr>
         <th>
@@ -35,7 +49,8 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.firstName)
@@ -59,9 +74,9 @@
             @Html.DisplayFor(modelItem => item.Phone)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EmployeeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EmployeeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EmployeeID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID })
         </td>
     </tr>
 }

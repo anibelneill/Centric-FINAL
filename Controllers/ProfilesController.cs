@@ -22,18 +22,20 @@ namespace Centric_FINAL.Controllers
         }
 
         // GET: Profiles/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? page, string searchString)
         {
-            if (id == null)
+            int pgSize = 10;
+            int pageNumber = (page ?? 1);
+            var profile = from p in db.Profile select p;
+
+            profile = db.Profile.OrderBy(p => p.lastName).ThenBy(p => p.firstName); ;
+
+            if (!String.IsNullOrEmpty(searchString))
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                profile = profile.Where(p => p.lastName.Contains(searchString) || p.firstName.Contains(searchString));
             }
-            Profile profile = db.Profile.Find(id);
-            if (profile == null)
-            {
-                return HttpNotFound();
-            }
-            return View(profile);
+            var profileList = Profile.ToPagedList(pageNumber, pgSize);
+            return View(profileList);
         }
 
         // GET: Profiles/Create
