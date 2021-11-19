@@ -10,5 +10,6 @@ namespace Centric_FINAL.Models
     {
         [Key]
         public int ProgressID { get; set; }
+
     }
 }

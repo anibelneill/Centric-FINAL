@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
+using System.Net.Mail;
 using System.Web;
 using System.Web.Mvc;
 using Centric_FINAL.DAL;
@@ -55,6 +56,40 @@ namespace Centric_FINAL.Controllers
             {
                 db.Recognize.Add(recognize);
                 db.SaveChanges();
+               /* string notification = "You've been recognized: <br/>";
+                ViewBag.EmployeeID = DateTime.Now;
+                {
+                    var firstName 
+                    var lastName 
+                    var email 
+                    var message= message
+                    var msg = "Hi " + firstName + " " + lastName + ", congratulations you have been recognized for living out one of Centric's Core Values! Click the link to see the good things emoloyees are saying about you: ";
+                    MailAddress myMessage = new MailMessage();
+                    MailAddress from = new MailAddress("aw344317@ohio.edu", "SysAdmin");
+                    myMessage.From = from;
+                    myMessage.ToString.Add(email);
+                    myMessage.Subject = "Congratulations you have been recognized!";
+                    myMessage.Body = msg;
+                    try
+                    {
+                        SmtpClient smtp = new SmtpClient();
+                        smtp.Host = "smtp.gmail.com";
+                        smtp.Port = 587;
+                        smtp.UseDefaultCredentials = false;
+                        smtp.Credentials = new System.Net.NetworkCredential("GmailUserAcnt", "Password");
+                        smtp.EnableSsl = true;
+                        smtp.Send(myMessage);
+                        TempData["mailError"] = ""; 
+                    }
+                    catch (Exception ex)
+                    {
+
+                        TempData["mailError"] = ex.Message;
+                        return View("mailError");
+                    }
+
+                }*/
+
                 return RedirectToAction("Index");
             }
 
