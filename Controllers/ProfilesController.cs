@@ -23,7 +23,7 @@ namespace Centric_FINAL.Controllers
             int pgSize = 10;
             int pageNumber = (page ?? 1);
             var profile = db.Profile.OrderBy(p => p.lastName).ThenBy(p => p.firstName);
-            var profileList = Profile.ToPagedList(pageNumber, pgSize);
+            var profileList = profile.ToPagedList(pageNumber, pgSize);
             return View(profileList);
         }
 
@@ -40,7 +40,7 @@ namespace Centric_FINAL.Controllers
             {
                 profile = profile.Where(p => p.lastName.Contains(searchString) || p.firstName.Contains(searchString));
             }
-            var profileList = Profile.ToPagedList(pageNumber, pgSize);
+            var profileList = profile.ToPagedList(pageNumber, pgSize);
             return View(profileList); 
         }
 
