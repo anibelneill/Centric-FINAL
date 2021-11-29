@@ -187,6 +187,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
     <Compile Include="Controllers\RecognizesController.cs" />
+    <Compile Include="Controllers\TrackProgressesController.cs" />
     <Compile Include="DAL\Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -275,6 +276,11 @@
     <Content Include="Views\Profiles\Details.cshtml" />
     <Content Include="Views\Profiles\Edit.cshtml" />
     <Content Include="Views\Profiles\Index.cshtml" />
+    <Content Include="Views\TrackProgresses\Create.cshtml" />
+    <Content Include="Views\TrackProgresses\Delete.cshtml" />
+    <Content Include="Views\TrackProgresses\Details.cshtml" />
+    <Content Include="Views\TrackProgresses\Edit.cshtml" />
+    <Content Include="Views\TrackProgresses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
