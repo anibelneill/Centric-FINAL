@@ -29,5 +29,7 @@ namespace Centric_FINAL.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<Centric_FINAL.Models.TrackProgress> TrackProgresses { get; set; }
     }
 }
