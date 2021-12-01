@@ -213,6 +213,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\BalancedLife.jpg" />
+    <Content Include="Images\centric_logo_colorx600_2730.png" />
     <Content Include="Images\Culture.jpg" />
     <Content Include="Images\DeliveryExcellence.jpg" />
     <Content Include="Images\IgnitePassion.jpg" />
