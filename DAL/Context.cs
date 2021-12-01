@@ -16,6 +16,5 @@ namespace Centric_FINAL.DAL
         public DbSet<Profile> Profile { get; set; }
         public DbSet<Recognize> Recognize { get; set; }
 
-        public System.Data.Entity.DbSet<Centric_FINAL.Models.UserData> UserDatas { get; set; }
     }
 }
