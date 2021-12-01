@@ -39,15 +39,15 @@ namespace Centric_FINAL.Models
         public string PhoneNumber { get; set; }
 
         [Display(Name = "Business Unit")]
-        public BusinessUnitName BusinessUnit { get; set; }
-        public enum BusinessUnitName { Boston, Charlotte, Chicago, Cincinnati, Cleveland, Columbus, Detroit, India, Indianapolis, Louisville, Miami, Seattle, StLouis }
+       // public BusinessUnitName BusinessUnit { get; set; }
+       // public enum BusinessUnitName { Boston, Charlotte, Chicago, Cincinnati, Cleveland, Columbus, Detroit, India, Indianapolis, Louisville, Miami, Seattle, StLouis }
 
-        [Display(Name = "Position")]
-        public BusinessTitle Title { get; set; }
-        public enum BusinessTitle { Consultant, SeniorConsultant, Manager, SeniorManager, Architect, SeniorArchitect, Partner, National }
+       // [Display(Name = "Position")]
+       // public BusinessTitle Title { get; set; }
+       // public enum BusinessTitle { Consultant, SeniorConsultant, Manager, SeniorManager, Architect, SeniorArchitect, Partner, National }
         
 
-        [Display(Name = "Hire Date")]
+       // [Display(Name = "Hire Date")]
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime hireDate { get; set; }
 

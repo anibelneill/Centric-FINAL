@@ -8,40 +8,33 @@ using System.Web;
 using System.Web.Mvc;
 using Centric_FINAL.DAL;
 using Centric_FINAL.Models;
-using PagedList;
-using PagedList.Mvc;
+using Microsoft.AspNet.Identity;
 
 namespace Centric_FINAL.Controllers
 {
-   [Authorize] public class ProfilesController : Controller
+    public class ProfilesController : Controller
     {
         private Context db = new Context();
 
         // GET: Profiles
-        public ActionResult Index(int? page)
+        public ActionResult Index()
         {
-            int pgSize = 10;
-            int pageNumber = (page ?? 1);
-            var profile = db.Profile.OrderBy(p => p.lastName).ThenBy(p => p.firstName);
-            var profileList = profile.ToPagedList(pageNumber, pgSize);
-            return View(profileList);
+            return View(db.Profile.ToList());
         }
 
         // GET: Profiles/Details/5
-        public ActionResult Details(int? page, string searchString)
+        public ActionResult Details(Guid? id)
         {
-            int pgSize = 10;
-            int pageNumber = (page ?? 1);
-            var profile = from p in db.Profile select p; 
-
-            profile = db.Profile.OrderBy(p => p.lastName).ThenBy(p => p.firstName); ;
-
-            if (!String.IsNullOrEmpty(searchString))
+            if (id == null)
             {
-                profile = profile.Where(p => p.lastName.Contains(searchString) || p.firstName.Contains(searchString));
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            var profileList = profile.ToPagedList(pageNumber, pgSize);
-            return View(profileList); 
+            Profile profile = db.Profile.Find(id);
+            if (profile == null)
+            {
+                return HttpNotFound();
+            }
+            return View(profile);
         }
 
         // GET: Profiles/Create
@@ -55,10 +48,13 @@ namespace Centric_FINAL.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmployeeID,firstName,lastName,BusinessUnit,hireDate,Title,email,Phone")] Profile profile)
+        public ActionResult Create([Bind(Include = "ID,Email,firstName,lastName,PhoneNumber,BusinessUnit,Title,hireDate")] Profile profile)
         {
             if (ModelState.IsValid)
             {
+                Guid memberID;
+                Guid.TryParse(User.Identity.GetUserId(), out memberID);
+                profile.ID = memberID;
                 db.Profile.Add(profile);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -68,7 +64,7 @@ namespace Centric_FINAL.Controllers
         }
 
         // GET: Profiles/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Edit(Guid? id)
         {
             if (id == null)
             {
@@ -87,7 +83,7 @@ namespace Centric_FINAL.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmployeeID,firstName,lastName,BusinessUnit,hireDate,Title,email,Phone")] Profile profile)
+        public ActionResult Edit([Bind(Include = "ID,Email,firstName,lastName,PhoneNumber,BusinessUnit,Title,hireDate")] Profile profile)
         {
             if (ModelState.IsValid)
             {
@@ -99,7 +95,7 @@ namespace Centric_FINAL.Controllers
         }
 
         // GET: Profiles/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Delete(Guid? id)
         {
             if (id == null)
             {
@@ -116,7 +112,7 @@ namespace Centric_FINAL.Controllers
         // POST: Profiles/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult DeleteConfirmed(Guid id)
         {
             Profile profile = db.Profile.Find(id);
             db.Profile.Remove(profile);

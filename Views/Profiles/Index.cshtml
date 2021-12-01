@@ -1,59 +1,45 @@
-﻿@*model IEnumerable<Centric_FINAL.Models.Profile>*@
-@model PagedList.IPagedList<Centric_FINAL.Models.Profile>
-@using PagedList.Mvc;
+﻿@model IEnumerable<Centric_FINAL.Models.Profile>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Employee List</h2>
+<h2>Index</h2>
 
-<div class="form-horizontal">
-    <div class="form-group">
-        <div class="col-md-9">
-            @using (Html.BeginForm("Index", "Profiles", FormMethod.Get))
-            {
-                <p>
-                    Find by Name: @Html.TextBox("searchString")
-                    <input type="submit" value="Search" />
-                </p>
-            }
-        </div>
-        <div class="col-md-3">
-            @Html.ActionLink("Add New Employee", "Create")
-        </div>
-    </div>
-</div>
-
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
 <table class="table">
     <tr>
         <th>
-            First Name
+            @Html.DisplayNameFor(model => model.Email)
         </th>
         <th>
-            Last Name
+            @Html.DisplayNameFor(model => model.firstName)
         </th>
         <th>
-            Business Unit
+            @Html.DisplayNameFor(model => model.lastName)
         </th>
         <th>
-           Hire Date
+            @Html.DisplayNameFor(model => model.PhoneNumber)
         </th>
         <th>
-            Title
+            @Html.DisplayNameFor(model => model.BusinessUnit)
         </th>
         <th>
-            Email
+            @Html.DisplayNameFor(model => model.Title)
         </th>
         <th>
-            Phone
+            @Html.DisplayNameFor(model => model.hireDate)
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model)
-{
+@foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.firstName)
         </td>
@@ -61,30 +47,23 @@
             @Html.DisplayFor(modelItem => item.lastName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.BusinessUnit)
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.hireDate)
+            @Html.DisplayFor(modelItem => item.BusinessUnit)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.email)
+            @Html.DisplayFor(modelItem => item.hireDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Phone)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.EmployeeID }) |
-            @Html.ActionLink("Details", "Details", new { id = item.EmployeeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.EmployeeID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>
 }
 
 </table>
-<br />
-Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
-
-@Html.PagedListPager(Model, Page => Url.Action("Index", new { Page }))
