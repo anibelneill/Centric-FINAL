@@ -12,6 +12,7 @@ namespace Centric_FINAL.Models
     {
         [Required]
         public Guid ID { get; set; }
+        public int EmployeeID { get; set; }
 
         [Required]
         [EmailAddress]

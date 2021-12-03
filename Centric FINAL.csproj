@@ -198,7 +198,6 @@
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\Recognize.cs" />
     <Compile Include="Models\TrackProgress.cs" />
-    <Compile Include="Models\UserData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

@@ -12,7 +12,7 @@ using Microsoft.AspNet.Identity;
 
 namespace Centric_FINAL.Controllers
 {
-    public class ProfilesController : Controller
+    [Authorize] public class ProfilesController : Controller
     {
         private Context db = new Context();
 
