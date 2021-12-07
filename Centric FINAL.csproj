@@ -187,12 +187,11 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
     <Compile Include="Controllers\RecognizesController.cs" />
-    <Compile Include="Controllers\TrackProgressController.cs" />
     <Compile Include="DAL\Context.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migration\Context\Configuration.cs" />
+    <Compile Include="Migrations\Context\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -278,16 +277,6 @@
     <Content Include="Views\Profiles\Details.cshtml" />
     <Content Include="Views\Profiles\Edit.cshtml" />
     <Content Include="Views\Profiles\Index.cshtml" />
-    <Content Include="Views\UserDatas\Create.cshtml" />
-    <Content Include="Views\UserDatas\Delete.cshtml" />
-    <Content Include="Views\UserDatas\Details.cshtml" />
-    <Content Include="Views\UserDatas\Edit.cshtml" />
-    <Content Include="Views\UserDatas\Index.cshtml" />
-    <Content Include="Views\TrackProgress\Create.cshtml" />
-    <Content Include="Views\TrackProgress\Delete.cshtml" />
-    <Content Include="Views\TrackProgress\Details.cshtml" />
-    <Content Include="Views\TrackProgress\Edit.cshtml" />
-    <Content Include="Views\TrackProgress\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

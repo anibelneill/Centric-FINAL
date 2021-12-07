@@ -1,4 +1,4 @@
-namespace Centric_FINAL.Migration.Context
+namespace Centric_FINAL.Migrations.Context
 {
     using System;
     using System.Data.Entity;
@@ -10,7 +10,7 @@ namespace Centric_FINAL.Migration.Context
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            MigrationsDirectory = @"Migration\Context";
+            MigrationsDirectory = @"Migrations\Context";
         }
 
         protected override void Seed(Centric_FINAL.DAL.Context context)
