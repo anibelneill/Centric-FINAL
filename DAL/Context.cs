@@ -16,5 +16,6 @@ namespace Centric_FINAL.DAL
         public DbSet<Profile> Profile { get; set; }
         public DbSet<Recognize> Recognize { get; set; }
 
+        object placeHolderVariable;
     }
 }
