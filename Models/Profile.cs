@@ -43,11 +43,11 @@ namespace Centric_FINAL.Models
 
         [Display(Name = "Business Unit")]
         public BusinessUnitName BusinessUnit { get; set; }
-        public enum BusinessUnitName { Boston, Charlotte, Chicago, Cincinnati, Cleveland, Columbus, Detroit, India, Indianapolis, Louisville, Miami, Seattle, StLouis }
+        public enum BusinessUnitName { Boston, Charlotte, Chicago, Cincinnati, Cleveland, Columbus, Detroit, India, Indianapolis, Louisville, Miami, Seattle, [Display(Name = "Saint Louis")] StLouis }
 
         [Display(Name = "Position")]
         public BusinessTitle Title { get; set; }
-        public enum BusinessTitle { Consultant, SeniorConsultant, Manager, SeniorManager, Architect, SeniorArchitect, Partner, National }
+        public enum BusinessTitle { Consultant, [Display(Name = "Senior Consultant")] SeniorConsultant, Manager, [Display(Name = "Senior Manager")] SeniorManager, Architect, [Display(Name = "Senior Consultant")] SeniorArchitect, Partner, National }
 
 
         [Display(Name = "Hire Date")]

@@ -1,4 +1,4 @@
-namespace Centric_FINAL.Migrations.MISContext
+namespace Centric_FINAL.Migrations.Context
 {
     using System;
     using System.Data.Entity;
@@ -10,7 +10,7 @@ namespace Centric_FINAL.Migrations.MISContext
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
-            MigrationsDirectory = @"Migrations\MISContext";
+            MigrationsDirectory = @"Migrations\Context";
             ContextKey = "Centric_FINAL.DAL.Context";
         }
 
