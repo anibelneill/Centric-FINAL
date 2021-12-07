@@ -5,7 +5,7 @@ using System.Web;
 
 namespace Centric_FINAL.Models
 {
-    public class TrackProgess
+    public class TrackProgress
     {
         public int  TrackID { get; set; }
         public string firstName { get; set; }
