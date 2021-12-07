@@ -17,5 +17,6 @@ namespace Centric_FINAL.DAL
         public DbSet<Recognize> Recognize { get; set; }
 
         object placeHolderVariable;
+        public System.Data.Entity.DbSet<Centric_FINAL.Models.TrackProgress> TrackProgresses { get; set; }
     }
 }
