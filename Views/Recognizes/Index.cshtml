@@ -12,7 +12,7 @@
 <table class="table">
     <tr>
         <th>
-            Employee First Name
+            Employee Full Name
         </th>
         <th>
             Core Value Indicator
@@ -29,7 +29,7 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Profile.firstName)
+            @Html.DisplayFor(modelItem => item.EmployeeFullName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CoreValueIndicator)

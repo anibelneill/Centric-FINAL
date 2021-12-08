@@ -41,7 +41,7 @@ namespace Centric_FINAL.Controllers
         // GET: Recognizes/Create
         public ActionResult Create()
         {
-            ViewBag.EmployeeID = new SelectList(db.Profile, "EmployeeID", "firstName");
+            ViewBag.EmployeeID = new SelectList(db.Profile, "EmployeeID", "EmployeeFullName");
             return View();
         }
 

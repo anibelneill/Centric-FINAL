@@ -14,7 +14,7 @@ namespace Centric_FINAL.Models
         public int EmployeeID { get; set; }
         public string firstName { get; set; }
         public string lastName { get; set; }
-        public enum CoreValue { Stewardship, Culture, Innovation, [Description("Delivery Excellence")] DeliveryExcellence, [Description("Greater Good")] GreaterGood, [Description("Integrity and Openness")] IntegrityandOpenness, Balance }
+        public enum CoreValue { Stewardship, Culture, Innovation, [Display(Name = "Delivery Excellence")] DeliveryExcellence, [Display(Name = "Greater Good")] GreaterGood, [Display(Name = "Integrity and Openness")] IntegrityandOpenness, Balance }
         public CoreValue CoreValueIndicator { get; set; }
         public enum TxtorEmail { Text, Email }
         public TxtorEmail MessageOption { get; set; }
