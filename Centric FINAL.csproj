@@ -278,11 +278,6 @@
     <Content Include="Views\Profiles\Details.cshtml" />
     <Content Include="Views\Profiles\Edit.cshtml" />
     <Content Include="Views\Profiles\Index.cshtml" />
-    <Content Include="Views\TrackProgresses\Create.cshtml" />
-    <Content Include="Views\TrackProgresses\Delete.cshtml" />
-    <Content Include="Views\TrackProgresses\Details.cshtml" />
-    <Content Include="Views\TrackProgresses\Edit.cshtml" />
-    <Content Include="Views\TrackProgresses\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
