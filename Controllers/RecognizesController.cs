@@ -41,7 +41,7 @@ namespace Centric_FINAL.Controllers
         // GET: Recognizes/Create
         public ActionResult Create()
         {
-            ViewBag.EmployeeID = new SelectList(db.Profile, "EmployeeID", "EmployeeFullName");
+            ViewBag.EmployeeID = new SelectList(db.Profile, "ID", "EmployeeFullName");
             return View();
         }
 
@@ -50,7 +50,7 @@ namespace Centric_FINAL.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RecognizeID,EmployeeID,CoreValueIndicator,MessageOption,Message")] Recognize recognize)
+        public ActionResult Create([Bind(Include = "RecognizeID,ID,CoreValueIndicator,MessageOption,Message")] Recognize recognize)
         {
             if (ModelState.IsValid)
             {
