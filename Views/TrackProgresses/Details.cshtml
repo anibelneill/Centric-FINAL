@@ -1,0 +1,58 @@
+﻿@model Centric_FINAL.Models.TrackProgress
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TrackProgress</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.firstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.firstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessUnitName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessUnitName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CoreValue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CoreValue)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TrackID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

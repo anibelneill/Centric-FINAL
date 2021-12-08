@@ -15,7 +15,8 @@ namespace Centric_FINAL.Models
         public string lastName { get; set; }
         public string BusinessUnitName { get; set; }
         public string BusinessTitle { get; set; }
-        public string CoreValue { get; set; }
+        public string CoreValueCount { get; set; }
+        public string RecognitionCount { get; set; }
 
         public string FullName
         {
