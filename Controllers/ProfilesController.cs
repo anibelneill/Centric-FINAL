@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Centric_FINAL.DAL;
 using Centric_FINAL.Models;
 using Microsoft.AspNet.Identity;
+using PagedList;
 
 namespace Centric_FINAL.Controllers
 {
@@ -17,9 +18,20 @@ namespace Centric_FINAL.Controllers
         private Context db = new Context();
 
         // GET: Profiles
-        public ActionResult Index()
+        public ActionResult Index(int? page, string searchString)
         {
-            return View(db.Profile.ToList());
+            int pgSize = 10;
+            int pageNumber = (page ?? 1);
+            var profile = from p in db.Profile select p;
+            // sorting
+            profile = db.Profile.OrderBy(p => p.lastName).ThenBy(p => p.firstName); ;
+            // check search and complete
+            if(!String.IsNullOrEmpty(searchString))
+            {
+                profile = profile.Where(p => p.lastName.Contains(searchString) || p.firstName.Contains(searchString));
+            }
+            var profileList = profile.ToPagedList(pageNumber, pgSize);
+            return View(profileList);
         }
 
         // GET: Profiles/Details/5
