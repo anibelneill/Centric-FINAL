@@ -24,7 +24,8 @@
         <td class="text-left">
             @{
                 Centric_FINAL.DAL.Context db = new Centric_FINAL.DAL.Context();
-                int employeeCnt = db.Recognize.Where(r => r.EmployeeID == item.EmployeeID).Count();
+                int employeeCnt = db.Recognize.Where(r => r.EmployeeID == item.EmployeeID).Distinct().Count();
+               // int employeeCnt = db.Profile.Where(r => r.EmployeeID == item.EmployeeID).Count();
                 @employeeCnt
             }
         </td>
