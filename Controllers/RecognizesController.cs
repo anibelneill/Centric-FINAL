@@ -57,7 +57,7 @@ namespace Centric_FINAL.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RecognizeID,ID,CoreValueIndicator,MessageOption,Message")] Recognize recognize)
+        public ActionResult Create([Bind(Include = "RecognizeID,EmployeeID,CoreValueIndicator,MessageOption,Message")] Recognize recognize)
         {
             if (ModelState.IsValid)
             {
@@ -100,7 +100,7 @@ namespace Centric_FINAL.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.EmployeeID = new SelectList(db.Profile, "EmployeeID", "firstName", recognize.EmployeeID);
+            ViewBag.EmployeeID = new SelectList(db.Profile, "ID", "firstName", recognize.EmployeeID);
             return View(recognize);
         }
 
@@ -116,7 +116,7 @@ namespace Centric_FINAL.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.EmployeeID = new SelectList(db.Profile, "EmployeeID", "firstName", recognize.EmployeeID);
+            ViewBag.EmployeeID = new SelectList(db.Profile, "ID", "EmployeeFullName", recognize.EmployeeID);
             return View(recognize);
         }
 
@@ -133,7 +133,7 @@ namespace Centric_FINAL.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.EmployeeID = new SelectList(db.Profile, "EmployeeID", "firstName", recognize.EmployeeID);
+            ViewBag.EmployeeID = new SelectList(db.Profile, "ID", "EmployeeFullName", recognize.EmployeeID);
             return View(recognize);
         }
 
