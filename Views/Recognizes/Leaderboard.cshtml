@@ -6,45 +6,32 @@
 
 <h2>Leaderboard</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.EmployeeID)
+            Count of Recognitions
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Message)
+            Employee Full Name
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EmployeeFullName)
+
         </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeID)
+        <td class="text-left">
+            @{
+                Centric_FINAL.DAL.Context db = new Centric_FINAL.DAL.Context();
+                int employeeCnt = db.Recognize.Where(r => r.EmployeeID == item.EmployeeID).Count();
+                @employeeCnt
+            }
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.firstName)
+            @Html.DisplayFor(modelItem => item.Profile.EmployeeFullName)
         </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.lastName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Message)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EmployeeFullName)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.RecognizeID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.RecognizeID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.RecognizeID })
-        </td>
+        
     </tr>
 }
 
