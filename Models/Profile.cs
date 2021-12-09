@@ -53,5 +53,6 @@ namespace Centric_FINAL.Models
         [Display(Name = "Hire Date")]
         [DisplayFormat(DataFormatString = "{0:d}", ApplyFormatInEditMode = true)]
         public DateTime hireDate { get; set; }
+        public ICollection<Recognize> Recognize { get; set; }
     }
 }
