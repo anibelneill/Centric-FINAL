@@ -20,7 +20,7 @@ namespace Centric_FINAL.Controllers
         // GET: Profiles
         public ActionResult Index(int? page, string searchString)
         {
-            int pgSize = 10;
+            int pgSize = 20;
             int pageNumber = (page ?? 1);
             var profile = from p in db.Profile select p;
             // sorting
@@ -32,6 +32,13 @@ namespace Centric_FINAL.Controllers
             }
             var profileList = profile.ToPagedList(pageNumber, pgSize);
             return View(profileList);
+        }
+
+        // GET: Profiles/Leaderboard
+        public ActionResult Leaderboard()
+        {
+            var recognize = db.Profile.Include(r => r.Recognize).OrderBy(p => p.lastName).ThenBy(p => p.firstName);
+            return View("Leaderboard", recognize.ToList());
         }
 
         // GET: Profiles/Details/5

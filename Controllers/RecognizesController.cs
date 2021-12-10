@@ -23,13 +23,6 @@ namespace Centric_FINAL.Controllers
             return View(recognize.ToList());
         }
 
-        // GET: Recognizes/Leaderboard
-        public ActionResult Leaderboard()
-        {
-            var recognize = db.Recognize.Include(r => r.Profile);
-            return View(recognize.ToList());
-        }
-
         // GET: Recognizes/Details/5
         public ActionResult Details(int? id)
         {

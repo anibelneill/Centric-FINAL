@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Centric_FINAL.Models.Profile>
+
+@{
+    ViewBag.Title = "Leaderboard";
+}
+
+<h2>Leaderboard</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Employee Full Name
+        </th>
+        <th>
+            Recognition Count
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        var cnt = item.Recognize.Count();
+        if (cnt == 0)
+        {
+            continue; // this causes a skip to the end of the loop when there are no recognitions
+        }
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmployeeFullName)
+            </td>
+            <td>
+                @{
+                    // display the recognigion count
+                    @cnt.ToString();
+                }
+                @*@Html.DisplayFor(modelItem => item.Recognize.Count())*@
+            </td>
+        </tr>
+    }
+</table>
+
